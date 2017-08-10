@@ -1,17 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
   <title>Marvel Character Aggregator</title>
 </head>
 <body>
 
 <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">Marvel Character Aggregator!</a>
+    <div class="nav-wrapper red darken-1">
+      <a class="brand-logo center">Marvel Character Aggregator</a>
     </div>
   </nav>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <div class="input-field col s6 offset-s3">
+        <input placeholder="Ex: Captain America" id="first_name" type="text" class="validate">
+        <label for="first_name">Enter a Marvel Character:</label>
+        <button class="btn waves-effect waves-light blue darken-4" type="submit" name="action">Submit</button>
+      </div> 
+    </div>
+  </div>
+</div>
+
+<!--Sample Character Card - These will populate dynamically when the user enters a character's name-->
+
+<div class="container">
+  <div class="col s12 m7">
+      <h2 class="header">Captain America</h2>
+      <div class="card horizontal small">
+        <div class="card-image">
+          <img src="https://i.annihil.us/u/prod/marvel//universe3zx/images/0/0d/MikeFichera--Cap-Classic-red-white-blue.jpg">
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <p>Vowing to serve his country any way he could, young Steve Rogers took the super soldier serum to become America's one-man army. Fighting for the red, white and blue for over 60 years, Captain America is the living, breathing symbol of freedom and liberty.</p>
+          </div>
+          <div class="card-action">
+            <a href="#">This is a link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!--Next Section will go below this line-->
+
 <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
 <script type="text/javascript" src="assets/java/java.js"></script>
