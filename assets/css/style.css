@@ -1,1 +1,8 @@
+@font-face {
+    font-family: "marvLike";
+    src: url("../fonts/BEBAS.woff");
+}
 
+.brand-logo {
+    font-family: "marvLike";
+}
