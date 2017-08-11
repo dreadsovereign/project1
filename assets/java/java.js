@@ -1,3 +1,7 @@
+$(document).ready(function(){
+   $('.carousel').carousel();
+});
+  
 $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function(event) {
 event.preventDefault();
 
@@ -40,3 +44,5 @@ $.getJSON( marvelAPI, {
    
 });
 })
+
+
