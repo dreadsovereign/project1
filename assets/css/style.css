@@ -5,4 +5,12 @@
 
 .brand-logo {
     font-family: "marvLike";
+    letter-spacing: -1.75px;
+    word-spacing: 3px;
+}
+
+body {
+    background-image: url("../images/marvelspreadlightest.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
