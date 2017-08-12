@@ -1,6 +1,8 @@
 $(document).ready(function(){
    $('.carousel').carousel();
 });
+
+var searchQuery; //!!!!!! USER INPUT STRING !!!!!
   
 $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function(event) {
 event.preventDefault();
@@ -44,5 +46,11 @@ $.getJSON( marvelAPI, {
    
 });
 })
+
+
+
+//CHRIS' JS
+
+
 
 
