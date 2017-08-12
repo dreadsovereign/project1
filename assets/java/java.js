@@ -45,11 +45,23 @@ $.getJSON( marvelAPI, {
   });
    
 });
-})
-
-
-
 //CHRIS' JS
+
+$.ajax ({
+  url: "http://api.walmartlabs.com/v1/search/?query=ipad&apiKey=zzjd8dnn2xptv4j8nbj8p9mu&format=json",
+  jsonpCallback: "handleresponse",
+  dataType: "jsonp"
+});
+
+
+})
+function handleresponse(response) {
+  console.log(response);
+}
+
+
+
+
 
 
 
