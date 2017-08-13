@@ -1,7 +1,3 @@
-$(".btn.waves-effect.waves-light.blue.darken-4").on("click", function(event) {
-event.preventDefault();
-
-
 $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
     event.preventDefault();
 
@@ -137,15 +133,6 @@ $.getJSON( marvelAPI, {
 });
 });
 
-
-//Comic Clicks
-$(document).on("click", ".searchimg", function () {
-    console.log(this);
-    console.log($(this).attr("url"));
-    window.open($(this).attr("url"));
-});
-
- 
 function handleresponse(response) {
   for(j=0; j < 10; j++) {
     var prodName = response.items[j].name;
@@ -156,4 +143,11 @@ function handleresponse(response) {
   }
   $('.carousel').carousel();
 }
+//Comic Clicks
+$(document).on("click", ".searchimg", function () {
+    console.log(this);
+    console.log($(this).attr("url"));
+    window.open($(this).attr("url"));
 });
+
+ 
