@@ -11,6 +11,7 @@ $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
     var comicImg;
     var p;
     var title;
+    var description;
 
     var publickey = "76cd835d936d952adc72ca7b3647c6e2";
 
@@ -58,15 +59,17 @@ $.getJSON( marvelAPI, {
 
                     var imgDiv = $("<div class='item'>");
 
-                    var description = results[i].description;
-                    var characterid = results[i].id;
-                    var charactername = results[i].name;
-                    console.log(charactername);
-
-                    console.log(characterid);
+                    description = results[i].description;
+                    characterid = results[i].id;
+                    charactername = results[i].name;
+                    
+                   // console.log(charactername);
+                   // console.log(description);
+                   // console.log(characterid);
+                    
                     var imgmod = "/portrait_incredible.jpg"
 
-                    var p = $("<p>").text("Description: " + description);
+                    p = $("<p>").text("Description: " + description);
 
                     var charImg = $("<img>");
                     charImg.attr("src", results[i].thumbnail.path + imgmod);
@@ -91,37 +94,42 @@ $.getJSON( marvelAPI, {
                         .done(function (response) {
                             console.log(response.data.results);
                             console.log(characterid);
+                            console.log(charactername);
+                            console.log(description);
                             var results = response.data.results;
                             console.log(response.data.results[0].urls[0].url);
 
-
+                                
                             for (var i = 0; i < results.length; i++) {
-                                var title = results[i].title;
+                                title = results[i].title;
+                                console.log(title);
+
                                 var imgurl = response.data.results[i].urls[0].url;
                                 console.log(imgurl);
                                 var comiccover = "/portrait_xlarge.jpg";
                                 //var comicimgDiv = $("<div class='item'>");
 
-                                var comicImg = $("<img>");
+                                comicImg = $("<img>");
                                 comicImg.attr({ src: results[i].thumbnail.path + comiccover, url: imgurl, class: "searchimg" });
-
+                                console.log(comicImg);
                                 //comicimgDiv.prepend(comicImg);
                                 //comicimgDiv.prepend(title);
 
                             }
 
-                            $("#card-content").append("<div class='col s12 m7'>" + "<h2 class='header'>" + charactername + "</h2>" + "<div class='card horizontal'>" + "<div class='card-image'>" + charImg + "</div>" + "<div class='card-stacked'>" + "<div class='card-content'>" + p + "</div>" + "<div class='card-action'>" + comicImg + title + "</div>" + "</div>" + "</div>" + "</div>");
+                             $("#card-content").append("<div class='col s12 m7'>" + "<h2 class='header'>" + charactername + "</h2>" + "<div class='card horizontal'>" + "<div class='card-image'>" + charImg + "</div>" + "<div class='card-stacked'>" + "<div class='card-content'>" + p + "</div>" + "<div class='card-action'>" + comicImg + title + "</div>" + "</div>" + "</div>" + "</div>");
 
                         });
 
                 });
 
             });
-
+           
     });
     //CHRIS' JS
     $(".carousel").empty();
     $(".carousel").removeClass("initialized");
+
 
     var sQuery = $("#character-name").val();
 
@@ -131,6 +139,7 @@ $.getJSON( marvelAPI, {
   jsonpCallback: "handleresponse",
   dataType: "jsonp"
 });
+  
 });
 
 function handleresponse(response) {
