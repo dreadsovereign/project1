@@ -1,3 +1,7 @@
+#test2 {
+  display: block;
+}
+
 @font-face {
     font-family: "marvLike";
     src: url("../fonts/BEBAS.woff");
@@ -11,11 +15,8 @@
 
 body {
     background-image: url("../images/marvelspreadlightest.jpg");
-    background-repeat: repeat;
+    background-repeat: repeat-y;
     background-size: cover;
 }
 
-.carousel{
-    font-size: 12px;
 
-}
