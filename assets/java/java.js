@@ -25,22 +25,6 @@ $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
     var hash = CryptoJS.MD5(timestamp + privatekey + publickey).toString();
 
 
-var character = $("#character-name").val();
-$(function(){
-var marvelAPI = 'https://gateway.marvel.com/v1/public/characters';
-$.getJSON( marvelAPI, {
-    ts: timestamp,
-    apikey: publickey,
-    hash: hash,
-    name: character
-  })
-    .done(function( response ) {
-      console.log(response);
-  });
-   
-});
-
-
     var character = $("#character-name").val();
     $(function () {
         var marvelAPI = 'https://gateway.marvel.com/v1/public/characters';
