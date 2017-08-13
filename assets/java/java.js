@@ -1,9 +1,3 @@
-$(document).ready(function(){
-   $('.carousel').carousel();
-});
-
-var searchQuery; //!!!!!! USER INPUT STRING !!!!!
-  
 $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function(event) {
 event.preventDefault();
 
@@ -46,20 +40,37 @@ $.getJSON( marvelAPI, {
    
 });
 //CHRIS' JS
+$(".carousel").empty();
+$(".carousel").removeClass("initialized");
+
+var sQuery = $("#character-name").val();
+
 
 $.ajax ({
-  url: "http://api.walmartlabs.com/v1/search/?query=ipad&apiKey=zzjd8dnn2xptv4j8nbj8p9mu&format=json",
+  url: "http://api.walmartlabs.com/v1/search/?query="+sQuery+"&apiKey=zzjd8dnn2xptv4j8nbj8p9mu&format=json",
   jsonpCallback: "handleresponse",
   dataType: "jsonp"
 });
 
 
+
 })
 function handleresponse(response) {
-  console.log(response);
+
+
+  
+  for(j=0; j < 10; j++) {
+    var prodName = response.items[j].name;
+    var prodImg = response.items[j].largeImage;
+    var prodPrice = response.items[j].salePrice;
+    var prodUrl = response.items[j].productUrl;
+    $(".carousel").append("<div class='carousel-item center-align'>"+prodName+"<img src='"+prodImg+"' alt='ERROR' url='"+prodUrl+"'>Sale Price: $"+prodPrice+"</div>");
+    
+    
+  }
+  
+  $('.carousel').carousel();
 }
-
-
 
 
 

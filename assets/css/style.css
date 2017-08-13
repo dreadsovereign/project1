@@ -11,6 +11,11 @@
 
 body {
     background-image: url("../images/marvelspreadlightest.jpg");
-    background-repeat: repeat-y;s
+    background-repeat: repeat;
     background-size: cover;
+}
+
+.carousel{
+    font-size: 12px;
+
 }
