@@ -15,7 +15,7 @@
 
 body {
     background-image: url("../images/marvelspreadlightest.jpg");
-    background-repeat: repeat;
+    background-repeat: repeat-y;
     background-size: cover;
 }
 
