@@ -1,8 +1,6 @@
-$(document).ready(function () {
-    $('.carousel').carousel();
-});
+$(".btn.waves-effect.waves-light.blue.darken-4").on("click", function(event) {
+event.preventDefault();
 
-var searchQuery; //!!!!!! USER INPUT STRING !!!!!
 
 $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
     event.preventDefault();
@@ -28,6 +26,23 @@ $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
 
     var timestamp = new Date().getTime();
     var hash = CryptoJS.MD5(timestamp + privatekey + publickey).toString();
+
+
+var character = $("#character-name").val();
+$(function(){
+var marvelAPI = 'https://gateway.marvel.com/v1/public/characters';
+$.getJSON( marvelAPI, {
+    ts: timestamp,
+    apikey: publickey,
+    hash: hash,
+    name: character
+  })
+    .done(function( response ) {
+      console.log(response);
+  });
+   
+});
+
 
     var character = $("#character-name").val();
     $(function () {
@@ -83,8 +98,8 @@ $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
                             var results = response.data.results;
                             console.log(response.data.results[0].urls[0].url);
 
-                            for (var i = 0; i < results.length; i++) {
 
+                            for (var i = 0; i < results.length; i++) {
                                 var title = results[i].title;
                                 var imgurl = response.data.results[i].urls[0].url;
                                 console.log(imgurl);
@@ -109,17 +124,19 @@ $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
 
     });
     //CHRIS' JS
+    $(".carousel").empty();
+    $(".carousel").removeClass("initialized");
 
-    $.ajax({
-        url: "http://api.walmartlabs.com/v1/search/?query=ipad&apiKey=zzjd8dnn2xptv4j8nbj8p9mu&format=json",
-        jsonpCallback: "handleresponse",
-        dataType: "jsonp"
-    });
+    var sQuery = $("#character-name").val();
+
+
+ $.ajax ({
+  url: "http://api.walmartlabs.com/v1/search/?query="+sQuery+"&apiKey=zzjd8dnn2xptv4j8nbj8p9mu&format=json",
+  jsonpCallback: "handleresponse",
+  dataType: "jsonp"
 });
-//walmart function
-function handleresponse(response) {
-    console.log(response);
-}
+});
+
 
 //Comic Clicks
 $(document).on("click", ".searchimg", function () {
@@ -128,9 +145,15 @@ $(document).on("click", ".searchimg", function () {
     window.open($(this).attr("url"));
 });
 
-
-
-
-
-
-
+ 
+function handleresponse(response) {
+  for(j=0; j < 10; j++) {
+    var prodName = response.items[j].name;
+    var prodImg = response.items[j].largeImage;
+    var prodPrice = response.items[j].salePrice;
+    var prodUrl = response.items[j].productUrl;
+    $(".carousel").append("<div class='carousel-item center-align'>"+prodName+"<img src='"+prodImg+"' alt='ERROR' url='"+prodUrl+"'>Sale Price: $"+prodPrice+"</div>");
+  }
+  $('.carousel').carousel();
+}
+});
