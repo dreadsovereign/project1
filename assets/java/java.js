@@ -127,7 +127,7 @@ $.getJSON( marvelAPI, {
 
 
  $.ajax ({
-  url: "http://api.walmartlabs.com/v1/search/?query="+sQuery+"&apiKey=zzjd8dnn2xptv4j8nbj8p9mu&format=json",
+  url: "https://api.walmartlabs.com/v1/search/?query="+sQuery+"&apiKey=zzjd8dnn2xptv4j8nbj8p9mu&format=json",
   jsonpCallback: "handleresponse",
   dataType: "jsonp"
 });
