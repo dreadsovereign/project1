@@ -1,3 +1,21 @@
 #test2 {
   display: block;
 }
+
+@font-face {
+    font-family: "marvLike";
+    src: url("../fonts/BEBAS.woff");
+}
+
+.brand-logo {
+    font-family: "marvLike";
+    letter-spacing: -1.75px;
+    word-spacing: 3px;
+}
+
+body {
+    background-image: url("../images/marvelspreadlightest.jpg");
+    background-repeat: repeat-y;s
+    background-size: cover;
+}
+
