@@ -1,3 +1,7 @@
+#test2 {
+  display: block;
+}
+
 @font-face {
     font-family: "marvLike";
     src: url("../fonts/BEBAS.woff");
@@ -14,3 +18,4 @@ body {
     background-repeat: repeat-y;s
     background-size: cover;
 }
+
