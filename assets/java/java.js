@@ -141,7 +141,7 @@ function handleresponse(response) {
     var prodImg = response.items[j].largeImage;
     var prodPrice = response.items[j].salePrice;
     var prodUrl = response.items[j].productUrl;
-    $(".carousel").append("<div class='carousel-item center-align'>"+prodName+"<img src='"+prodImg+"' alt='ERROR' url='"+prodUrl+"'>Sale Price: $"+prodPrice+"</div>");
+    $(".carousel").append("<div class='carousel-item product center-align' url='"+prodUrl+"'>"+prodName+"<img src='"+prodImg+"' alt='ERROR'>Sale Price: $"+prodPrice+"</div>");
   }
   $('.carousel').carousel();
 }
@@ -152,4 +152,8 @@ $(document).on("click", ".searchimg", function () {
     window.open($(this).attr("url"));
 });
 
- 
+//Product Clicks
+$(document).on("click", ".product", function () {
+    window.open($(this).attr("url"));
+
+})
