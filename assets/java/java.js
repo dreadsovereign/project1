@@ -1,7 +1,10 @@
 $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
     event.preventDefault();
 
-    $("#card-content").empty();
+    $(".card-image").empty();
+    $(".card-content").empty();
+    $(".card-action").empty();
+    $(".header").empty();
 
     var character = $("#character-name").val();
 
@@ -24,7 +27,6 @@ $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
     var timestamp = new Date().getTime();
     var hash = CryptoJS.MD5(timestamp + privatekey + publickey).toString();
 
-
     var character = $("#character-name").val();
     $(function () {
         var marvelAPI = 'https://gateway.marvel.com/v1/public/characters';
@@ -36,7 +38,7 @@ $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
             limit: limit
         })
             .done(function (response) {
-                console.log(response.data.results);
+                console.log(response);
                 var results = response.data.results;
 
                 for (var i = 0; i < results.length; i++) {
@@ -51,17 +53,22 @@ $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
                    // console.log(description);
                    // console.log(characterid);
                     
-                    var imgmod = "/portrait_incredible.jpg"
+                    var imgmod = "/portrait_uncanny.jpg"
 
                     p = $("<p>").text("Description: " + description);
 
                     var charImg = $("<img>");
                     charImg.attr("src", results[i].thumbnail.path + imgmod);
+                    console.log(charImg);
 
                     //imgDiv.prepend(p);
                     //imgDiv.prepend(charImg);
 
                     //$("#test").prepend(imgDiv);
+
+                    $(".card-image").append(charImg);
+                    $(".header").append(charactername);
+                    $(".card-content").append(description);
 
                 }
 
@@ -76,32 +83,34 @@ $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
                         format: format
                     })
                         .done(function (response) {
-                            console.log(response.data.results);
-                            console.log(characterid);
-                            console.log(charactername);
-                            console.log(description);
+                            console.log(response);
+                            //console.log(characterid);
+                            //console.log(charactername);
+                            //console.log(description);
                             var results = response.data.results;
-                            console.log(response.data.results[0].urls[0].url);
+                            //console.log(response.data.results[0].urls[0].url);
 
                                 
                             for (var i = 0; i < results.length; i++) {
                                 title = results[i].title;
                                 console.log(title);
 
-                                var imgurl = response.data.results[i].urls[0].url;
-                                console.log(imgurl);
-                                var comiccover = "/portrait_xlarge.jpg";
+                                var imgurl = results[i].urls[0].url;
+                                //console.log(imgurl);
+                                var comiccover = "/portrait_medium.jpg";
                                 //var comicimgDiv = $("<div class='item'>");
 
                                 comicImg = $("<img>");
-                                comicImg.attr({ src: results[i].thumbnail.path + comiccover, url: imgurl, class: "searchimg" });
-                                console.log(comicImg);
+                                comicImg.attr({ src: results[i].thumbnail.path + comiccover, url: imgurl, class: "searchimg" }).css("margin-right", "5px");
+                                //console.log(comicImg);
                                 //comicimgDiv.prepend(comicImg);
                                 //comicimgDiv.prepend(title);
 
-                            }
+                                $(".card-action").append(comicImg);
 
-                             $("#card-content").append("<div class='col s12 m7'>" + "<h2 class='header'>" + charactername + "</h2>" + "<div class='card horizontal'>" + "<div class='card-image'>" + charImg + "</div>" + "<div class='card-stacked'>" + "<div class='card-content'>" + p + "</div>" + "<div class='card-action'>" + comicImg + title + "</div>" + "</div>" + "</div>" + "</div>");
+
+
+                            }
 
                         });
 
