@@ -58,7 +58,6 @@ $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
                     charImg.attr("src", results[i].thumbnail.path + imgmod);
 
                     var charSpan = $("<span class='card-title'>" + charactername + "</span>");
-
                     console.log(charSpan);
 
                     $(".card-image").append(charImg);
