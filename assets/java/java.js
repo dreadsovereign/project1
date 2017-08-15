@@ -49,26 +49,20 @@ $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
                     characterid = results[i].id;
                     charactername = results[i].name;
                     
-                   // console.log(charactername);
-                   // console.log(description);
-                   // console.log(characterid);
-                    
-                    var imgmod = "/portrait_uncanny.jpg"
+                    var imgmod = "/portrait_uncanny.jpg";
+                    var spanclass = "card-title";
 
                     p = $("<p>").text("Description: " + description);
 
                     var charImg = $("<img>");
                     charImg.attr("src", results[i].thumbnail.path + imgmod);
-                    console.log(charImg);
 
-                    //imgDiv.prepend(p);
-                    //imgDiv.prepend(charImg);
+                    var charSpan = $("<span class='card-title'>" + charactername + "</span>");
 
-                    //$("#test").prepend(imgDiv);
+                    console.log(charSpan);
 
                     $(".card-image").append(charImg);
-                    $(".header").append(charactername);
-                    $(".card-content").append(description);
+                    $(".card-content").append(charSpan, description);
 
                 }
 
@@ -84,27 +78,19 @@ $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
                     })
                         .done(function (response) {
                             console.log(response);
-                            //console.log(characterid);
-                            //console.log(charactername);
-                            //console.log(description);
+                            
                             var results = response.data.results;
-                            //console.log(response.data.results[0].urls[0].url);
-
                                 
                             for (var i = 0; i < results.length; i++) {
                                 title = results[i].title;
                                 console.log(title);
 
                                 var imgurl = results[i].urls[0].url;
-                                //console.log(imgurl);
+                         
                                 var comiccover = "/portrait_medium.jpg";
-                                //var comicimgDiv = $("<div class='item'>");
 
                                 comicImg = $("<img>");
                                 comicImg.attr({ src: results[i].thumbnail.path + comiccover, url: imgurl, class: "searchimg" }).css("margin-right", "5px");
-                                //console.log(comicImg);
-                                //comicimgDiv.prepend(comicImg);
-                                //comicimgDiv.prepend(title);
 
                                 $(".card-action").append(comicImg);
 
