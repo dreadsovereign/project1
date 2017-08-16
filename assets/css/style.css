@@ -29,3 +29,32 @@ body {
     border-top: 1px solid rgba(160,160,160,0.2);
     padding: 16px 35px;
 }
+
+#topbarsearch .input-field .prefix { 
+  width:0rem !important;    
+
+}        
+
+#topbarsearch nav ul li:hover, nav ul li.active {
+      background-color: white !important;
+
+}
+
+.input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .autocomplete-content{
+  margin-left: 1rem !important;
+  
+}
+
+/* label focus color */
+   .input-field.col.s6.s12.white-text input[type=text]:focus + label {
+     color: #E8E8EE;
+}
+/* label underline focus color */
+   .input-field.col.s6.s12.white-text input[type=text]:focus {
+     border-bottom: 1px solid #fff;
+     box-shadow: none;
+   }
+
+.alternate-option button {
+margin-bottom: 0px;
+}   
