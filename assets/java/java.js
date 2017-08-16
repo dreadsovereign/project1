@@ -1,10 +1,39 @@
+$(document).ready( function(){
+    $(".card").hide();
+    $(".btn.waves-effect.waves-light.blue.darken-4").addClass("disabled");
+});
+
+$(document).on("keyup", function (){
+    if ($("#character-name").val() != "") {
+         $(".btn.waves-effect.waves-light.blue.darken-4").removeClass("disabled");
+     }
+     else {
+         $(".btn.waves-effect.waves-light.blue.darken-4").addClass("disabled");
+     }
+ });
+
+var clickCount = 0;
+
 $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
     event.preventDefault();
+    if (clickCount != 0) {
+        $(".card").removeClass("animated bounceInLeft");
+        $(".card").addClass("animated bounceOutRight");
+      
 
-    $(".card-image").empty();
-    $(".card-content").empty();
-    $(".card-action").empty();
-    $(".header").empty();
+      setTimeout( function(){
+        $(".card").removeClass("animated bounceOutRight");
+        $(".card").addClass("animated bounceInLeft");
+      }, 750);  
+    }
+    else {
+        $(".card").show();
+        $(".card").addClass("animated bounceInLeft"); 
+        clickCount++
+    }
+  
+        
+    
 
     var character = $("#character-name").val();
 
@@ -59,10 +88,10 @@ $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
 
                     var charSpan = $("<span class='card-title'>" + charactername + "</span>");
                     console.log(charSpan);
-
-                    $(".card-image").append(charImg);
-                    $(".card-content").append(charSpan, description);
-
+                    setTimeout(function(){
+                        $("#marvImg").append(charImg);
+                        $("#marvInfo").append(charSpan, description);
+                    }, 500);
                 }
 
                 $(function () {
@@ -90,35 +119,26 @@ $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
 
                                 comicImg = $("<img>");
                                 comicImg.attr({ src: results[i].thumbnail.path + comiccover, url: imgurl, class: "searchimg" }).css("margin-right", "5px");
-
-                                $(".card-action").append(comicImg);
-
-
-
+                                setTimeout(function(){
+                                    $("#marvComs").append(comicImg);
+                                }, 500);
                             }
-
                         });
-
                 });
-
             });
-           
     });
     //CHRIS' JS
+    fetchingmovies(character)
     $(".carousel").empty();
     $(".carousel").removeClass("initialized");
 
 
+    $.ajax ({
+    url: "https://api.walmartlabs.com/v1/search/?query="+character+"&apiKey=zzjd8dnn2xptv4j8nbj8p9mu&format=json",
+    jsonpCallback: "handleresponse",
+    dataType: "jsonp"
+    });
 
-    var sQuery = $("#character-name").val();
-
-
- $.ajax ({
-  url: "https://api.walmartlabs.com/v1/search/?query="+sQuery+"&apiKey=zzjd8dnn2xptv4j8nbj8p9mu&format=json",
-  jsonpCallback: "handleresponse",
-  dataType: "jsonp"
-});
- 
 });
 
 function handleresponse(response) {
@@ -143,3 +163,46 @@ $(document).on("click", ".product", function () {
     window.open($(this).attr("url"));
 
 })
+
+var secondqueryURL;
+
+function fetchingmovies(title) {
+   
+    $(".card-image").empty();
+    $(".card-content").empty();
+    $(".card-action").empty();
+    $(".card-title").empty();
+    $(".header").empty();
+    
+    var j = 0;
+    var queryURL = "http://www.omdbapi.com/?s=" + title + "&type = movie&y=&plot=short&apikey=40e9cece";
+    var responseReceived;
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).done(function (response) {
+        console.log(response);
+        responseReceived = response;
+        for (var i = 0; i < 3; i++) {
+            text = response.Search[i].imdbID
+            secondqueryURL = "https://www.omdbapi.com/?i=" + text + "&type = movie&y=&plot=short&apikey=40e9cece";
+            $('#mov' + i).append(response.Search[i].Title);
+            $("#img" + i).append('<img class = "movCard card-image" src="' + response.Search[i].Poster + '">');
+            callSecond();
+           
+        }
+        function callSecond() {
+            $.ajax({
+                url: secondqueryURL,
+                dataType: 'json'
+            }).done(function (data) {
+                $('#plot'+ j).append('<div class= "row card-content">' + data.Plot + '</div>');
+                console.log(j);
+                
+                j= j+1;
+            });
+        
+        }
+    });
+    
+}
