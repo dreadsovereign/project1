@@ -1,100 +1,100 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
-
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
-
-    <title>Marvel Character Aggregator</title>
-
-
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+  <title>Marvel Character Aggregator</title>
 </head>
-
 <body>
-
-    <!-- START - Kamran's Section  ------------------------------------------------- -->
-    <nav>
-        <div class="nav-wrapper red darken-1">
-            <a class="brand-logo center">Marvel Character Aggregator</a>
-                
-                       <div class="center row">
-                          <div class="col s12" >
-                            <div class="row" id="topbarsearch">
-                              <div class="input-field col s6 s12 white-text">
-                               <form>
-                                  <input placeholder="Ex: Captain America" id="character-name" type="text" class="validate">
-                                  <label for="first_name">Enter a Marvel Character:</label>
-                                  <button class="btn waves-effect waves-light blue darken-4" type="submit" name="action">Submit</button>
-                                </form>
-                                </div>
-                              </div>
-                            </div>
-                          </div>          
-                
-        </div>
-    </nav>
-
-    <!--Testing-->
-
-   <hr>
-
-        <!--Sample Character Card - These will populate dynamically when the user enters a character's name-->
-
-
-        <div class="container">
-          <div class="col s12 m7">
-              <h2 class="header"></h2>
-              <div class="card horizontal">
-                <div class="card-image">
-                  
-                </div>
-                <div class="card-stacked">
-                  <div class="card-content">
-                    
-                  </div>
-                  <div class="card-action">
-                    
-                  </div>
-                </div>
-              </div>
+  <!-- START - Kamran's Section  ------------------------------------------------- -->
+  <nav>
+    <div class="nav-wrapper red darken-1">
+      <a class="brand-logo center">Marvel Character Aggregator</a>
+      <div class="center row">
+        <div class="col s12">
+          <div class="row" id="topbarsearch">
+            <div class="input-field col s6 s12 white-text">
+              <form>
+                <input placeholder="Ex: Captain America" id="character-name" type="text" class="validate" required>
+                <label for="first_name">Enter a Marvel Character:</label>
+                <button class="btn waves-effect waves-light blue darken-4" type="submit" name="action">Submit</button>
+              </form>
             </div>
           </div>
-      
-
-        <!-- END - Kamran's Section---------------------------------------------------- -->
-        <!-- START - Seraj's Section ------------------------------------------------- -->
-
-
-
-
-        
-  <!-- END - Seraj's Section---------------------------------------------------- -->
-  <!-- START - Chris' Section ------------------------------------------------- -->
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!--Testing-->
+  <hr>
+  <!--Sample Character Card - These will populate dynamically when the user enters a character's name-->
   <div class="container">
-    <div class="card horizontal medium">
+    <div class="col s12 m7">
+      <h2 class="header"></h2>
+      <div class="card horizontal">
+        <div class="card-image" id="marvImg">
 
-     <div class="carousel">
-        
- 
+        </div>
+        <div class="card-stacked">
+          <div class="card-content" id="marvInfo">
+
+          </div>
+          <div class="card-action" id="marvComs">
+
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  
+  <!-- END - Kamran's Section---------------------------------------------------- -->
+  <!-- START - Seraj's Section ------------------------------------------------- -->
+  <div class="container">
+    <div class="card horizontal">
+      <div class="card-image" id="img0">
+      </div>
+      <div class="right-content rc">
+        <span class="card-title" id=mov0></span>
+        <div class="card-content">
+          <p id="plot0"></p>
+        </div>
+      </div>
+    </div>
+    <div class="card horizontal">
+      <div class="card-image" id="img1"></div>
+      <div class="right-content rc">
+        <span class="card-title" id=mov1></span>
+        <div class="card-content">
+          <p id="plot1"></p>
+        </div>
+      </div>
+    </div>
+    <div class="card horizontal">
+      <div class="card-image" id="img2"></div>
+      <div class="right-content rc">
+        <span class="card-title" id=mov2></span>
+        <div class="card-content">
+          <p id="plot2"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END - Seraj's Section---------------------------------------------------- -->
+  <!-- START - Chris' Section ------------------------------------------------- -->
+  <div class="container">
+    <div class="card horizontal">
+      <div class="carousel">
+      </div>
+    </div>
+  </div>
+  <!--Scripts-------------------------------------------------------------------- -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 
-        <!--Scripts-------------------------------------------------------------------- -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
-
-        <script type="text/javascript" src="assets/java/java.js"></script>
+  <script type="text/javascript" src="assets/java/java.js"></script>
 
 </body>
 

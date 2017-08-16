@@ -1,5 +1,5 @@
 #test2 {
-  display: block;
+    display: block;
 }
 
 @font-face {
@@ -18,43 +18,68 @@ body {
     background-repeat: repeat-y;
     background-size: cover;
 }
-.carousel{
-    font-size: 12px;
 
+.carousel {
+    font-size: 12px;
 }
 
 .card .card-action {
     position: relative;
     background-color: inherit;
-    border-top: 1px solid rgba(160,160,160,0.2);
+    border-top: 1px solid rgba(160, 160, 160, 0.2);
     padding: 16px 35px;
 }
 
-#topbarsearch .input-field .prefix { 
-  width:0rem !important;    
-
-}        
-
-#topbarsearch nav ul li:hover, nav ul li.active {
-      background-color: white !important;
-
+#topbarsearch .input-field .prefix {
+    width: 0rem !important;
 }
 
-.input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .autocomplete-content{
-  margin-left: 1rem !important;
-  
+#topbarsearch nav ul li:hover,
+nav ul li.active {
+    background-color: white !important;
 }
+
+.input-field .prefix~input,
+.input-field .prefix~textarea,
+.input-field .prefix~label,
+.input-field .prefix~.validate~label,
+.input-field .prefix~.autocomplete-content {
+    margin-left: 1rem !important;
+}
+
 
 /* label focus color */
-   .input-field.col.s6.s12.white-text input[type=text]:focus + label {
-     color: #E8E8EE;
+
+.input-field.col.s6.s12.white-text input[type=text]:focus+label {
+    color: #E8E8EE;
 }
+
+
 /* label underline focus color */
-   .input-field.col.s6.s12.white-text input[type=text]:focus {
-     border-bottom: 1px solid #fff;
-     box-shadow: none;
-   }
+
+.input-field.col.s6.s12.white-text input[type=text]:focus {
+    border-bottom: 1px solid #fff;
+    box-shadow: none;
+}
 
 .alternate-option button {
-margin-bottom: 0px;
-}   
+    margin-bottom: 0px;
+}
+
+#img0,
+#img1,
+#img2 {
+    float: left;
+    width: 40%;
+}
+
+.rc {
+    width: 60%;
+    float: left;
+}
+
+#mov0,
+#mov1,
+#mov2 {
+    padding-left: 30px;
+}
