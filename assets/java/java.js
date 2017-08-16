@@ -109,6 +109,7 @@ $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
     $(".carousel").removeClass("initialized");
 
 
+
     var sQuery = $("#character-name").val();
 
 
@@ -117,7 +118,7 @@ $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
   jsonpCallback: "handleresponse",
   dataType: "jsonp"
 });
-  
+ 
 });
 
 function handleresponse(response) {
