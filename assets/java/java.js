@@ -1,10 +1,29 @@
+var config = {
+    apiKey: "AIzaSyBs-OKSK3k1H8ZfsAQqXw1mdEMUESF2i7Y",
+    authDomain: "marvel-aggregator.firebaseapp.com",
+    databaseURL: "https://marvel-aggregator.firebaseio.com",
+    projectId: "marvel-aggregator",
+    storageBucket: "marvel-aggregator.appspot.com",
+    messagingSenderId: "429910546717"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+
+
+
+var autoArray= [];
+
+
 $(document).ready( function(){
     $(".card").hide();
     $(".btn.waves-effect.waves-light.blue.darken-4").addClass("disabled");
+ 
+
 });
 
 $(document).on("keyup", function (){
-    if ($("#character-name").val() != "") {
+    if ($(".character-name").val() != "") {
          $(".btn.waves-effect.waves-light.blue.darken-4").removeClass("disabled");
      }
      else {
@@ -13,7 +32,7 @@ $(document).on("keyup", function (){
  });
 
 var clickCount = 0;
-var character = $("#character-name").val();
+var character = $(".character-name").val();
 
 var characterid;
 var charactername;
@@ -36,6 +55,7 @@ var hash = CryptoJS.MD5(timestamp + privatekey + publickey).toString();
 
 $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
     event.preventDefault();
+
     if (clickCount != 0) {
         $(".card").removeClass("animated bounceInLeft");
         $(".card").addClass("animated bounceOutRight");
@@ -52,7 +72,12 @@ $(".btn.waves-effect.waves-light.blue.darken-4").on("click", function (event) {
         clickCount++
     }
 
-    character = $("#character-name").val();
+    character = $(".character-name").val().trim();
+
+    database.ref().push({
+        name: character
+    });
+
     $(function  () {
         var marvelAPI = 'https://gateway.marvel.com/v1/public/characters';
         $.getJSON(marvelAPI, {
@@ -205,5 +230,8 @@ function fetchingmovies(title) {
         }
     })
 }
-    
 
+database.ref().on("child_added", function(snapshot) {
+     heroName = snapshot.val().name; 
+    autoArray.push(heroName);
+});  
