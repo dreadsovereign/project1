@@ -198,7 +198,7 @@ function fetchingmovies(title) {
     $(".header").empty();
     var secondqueryURL;
     var j = 0;
-    var queryURL = "http://www.omdbapi.com/?s=" + title + "&type = movie&y=&plot=short&apikey=40e9cece";
+    var queryURL = "https://www.omdbapi.com/?s=" + title + "&type = movie&y=&plot=short&apikey=40e9cece";
     var responseReceived;
     $.ajax({
         url: queryURL,
