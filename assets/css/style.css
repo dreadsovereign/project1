@@ -74,12 +74,12 @@ nav ul li.active {
 }
 
 .rc {
-    width: 60%;
+    width: 100%;
     float: left;
 }
 
 #mov0,
 #mov1,
 #mov2 {
-    padding-left: 30px;
+    padding-left: 20px;
 }
