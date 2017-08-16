@@ -16,7 +16,7 @@
           <div class="row" id="topbarsearch">
             <div class="input-field col s6 s12 white-text">
               <form>
-                <input placeholder="Ex: Captain America" id="character-name" type="text" class="validate" required>
+                <input placeholder="Ex: Captain America" id="autocomplete-input" type="text" class="character-name validate  autocomplete" required>
                 <label for="first_name">Enter a Marvel Character:</label>
                 <button class="btn waves-effect waves-light blue darken-4" type="submit" name="action">Submit</button>
               </form>
@@ -84,7 +84,13 @@
       </div>
     </div>
   </div>
+
+  <div class="container">
+    <div id="display-buttons" class="card horizontal">
+    </div>
+  </div> 
   <!--Scripts-------------------------------------------------------------------- -->
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
